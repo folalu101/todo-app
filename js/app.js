@@ -27,6 +27,22 @@ todoList.prototype.findList = function(id){
 // todo list prototype to delete list
 todoList.prototype.deleteList = function (id){
     if(list[id] === undefined){
-        
+        return false;
     }
-}
+    delete this.lists[id];
+    return true;
+};
+
+// further business logic
+function List(description, reminderDate, reminderTime){
+    this.description = description;
+    this.reminderDate = reminderDate;
+    this.reminderTime = reminderTime;
+};
+
+
+// user interface
+
+let todolist = new TodoList();
+
+// function to display list
