@@ -60,10 +60,19 @@ function displayList(todoListDisplay){
 function showList(contactId){
     const list = todoList.findList(contactId);
     $("#show-list").show();
-    $(".event").html(contact.description);
-    $(".date").html(contact.reminderdate);
-    $(".time").html(contact.reminderTime);
+    $(".event").html(list.description);
+    $(".date").html(list.reminderdate);
+    $(".time").html(list.reminderTime);
     let buttons = $("#button");
     buttons.empty();
     buttons.append("<button class='deleteButton' id=" + + contact.id + ">Clear</button>");
 };
+
+// function for event bubbling
+function addTodoListener(){
+    $("#my-list").on("click", "li", function (){
+        showList(this.id);
+    });
+};
+
+// 
