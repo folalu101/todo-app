@@ -55,3 +55,15 @@ function displayList(todoListDisplay){
     });
     contactList.html(htmlListInfo);
 };
+
+// function to show list
+function showList(contactId){
+    const list = todoList.findList(contactId);
+    $("#show-list").show();
+    $(".event").html(contact.description);
+    $(".date").html(contact.reminderdate);
+    $(".time").html(contact.reminderTime);
+    let buttons = $("#button");
+    buttons.empty();
+    buttons.append("<button class='deleteButton' id=" + + contact.id + ">Clear</button>");
+};
