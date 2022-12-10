@@ -46,3 +46,12 @@ function List(description, reminderDate, reminderTime){
 let todolist = new TodoList();
 
 // function to display list
+function displayList(todoListDisplay){
+    let contactList = $("ul#my-list");
+    let htmlListInfo = "";
+    Object.keys(todoListDisplay.lists).forEach(function(key){
+        const list = todoListDisplay.findList(key);
+        htmlListInfo += "<li id=" + contact.id + ">" + "</li>";
+    });
+    contactList.html(htmlListInfo);
+};
