@@ -43,7 +43,7 @@ function List(description, reminderDate, reminderTime){
 
 // user interface
 
-let todolist = new TodoList();
+let todolist = new todoList();
 
 // function to display list
 function displayList(todoListDisplay){
@@ -73,6 +73,35 @@ function addTodoListener(){
     $("#my-list").on("click", "li", function (){
         showList(this.id);
     });
+    // function to clear list
+$("#button").on("click", ".deleteButton", function(){
+    todoList.deleteList(this.id);
+    $("#show-list").hide();
+    displayList(todoList);
+});
+
 };
 
-// 
+// ui Logic
+$(document).ready(function(){
+    addTodoListener();
+    $("#show-list").submit(function(event){
+        event.preventDefault();
+
+    // to collapse user input 
+    const inputedDescription = $("#eventName").val();
+    const inputedReminderDate = $("#eventDate").val();
+    const inputedReminderTime = $("#eventTime").val();
+
+    // to empty form field
+    $("#eventname").val("");
+    $("#eventdate").val("");
+    $("#eventTime").val("");
+
+    let newList = new List (inputedDescription, inputedReminderDate, inputedReminderTime);
+    todoList.addList(newList);
+    displayList(todoList);
+    });
+   
+});
+
